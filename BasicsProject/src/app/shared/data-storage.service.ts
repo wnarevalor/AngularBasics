@@ -30,10 +30,7 @@ export class DataStorageService {
       take(1),
       exhaustMap((user) => {
         return this.http.get<Recipe[]>(
-          'https://recipes-site-angular-39e13-default-rtdb.firebaseio.com/recipes.json',
-          {
-            params: new HttpParams().set('auth', user.token),
-          }
+          'https://recipes-site-angular-39e13-default-rtdb.firebaseio.com/recipes.json'
         );
       }),
       map((recipes) => {
