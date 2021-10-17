@@ -26,7 +26,7 @@ export class DataStorageService {
   fetchRecipes() {
     //take 1 value of the observable and unsubscribe after that
     //exhaustMap starts with userBehaviourSubject observable and replaces with the inner observable
-    return this.authService.userBehaviorSubject.pipe(
+    return this.authService.user.pipe(
       take(1),
       exhaustMap((user) => {
         return this.http.get<Recipe[]>(
